@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 @Entity
 @Table(name="instructor_detail")
 public class InstructorDetail {
-    private Instructor instructor;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +16,9 @@ public class InstructorDetail {
 
     @Column(name="hobby")
     private String hobby;
+
+    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
+    private Instructor instructor;
 
     public Instructor getInstructor() {
         return instructor;
