@@ -18,13 +18,13 @@ public class Course {
     @JoinColumn(name = "instructor_id")
     private Instructor instructor;
 
-    
+
     public Course() {
 
     }
 
-    public Course(String title, int instructorId) {
-
+    public Course(String title) {
+        this.title = title;
     }
 
     public int getId() {
