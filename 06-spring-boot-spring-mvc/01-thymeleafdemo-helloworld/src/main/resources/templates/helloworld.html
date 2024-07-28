@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf Demo</title>
+</head>
+<body>
+<h1>Welcome to the demo</h1>
+<main>
+    <p>
+        Welcome to the page created using thymeleaf! This is a simple HTML file inside the templates folder, but it is
+        connected using a controller. As of 7/28/2024 11:41AM it only has one GET endpoint "/hello" that returns this page.
+        It also has a variable that has been created inside the GetMapping annotation named "theDate" and I will print it using
+        string interpolation right below this paragraph! Thank you for visiting!
+    </p>
+   <p th:text="'Time on the server is ' + ${theDate}"/>
+</main>
+</body>
+</html>

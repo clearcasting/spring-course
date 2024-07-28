@@ -17,14 +17,17 @@ public class AopdemoApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(AccountDAO accountDAO, MembershipDAO membershipDAO) {
 		return runner -> {
-
 			demoTheBeforeAdvice(accountDAO, membershipDAO);
 		};
 	}
 
 	private void demoTheBeforeAdvice(AccountDAO accountDAO, MembershipDAO membershipDAO) {
-		accountDAO.addAccount();
+		Account account = new Account();
+		accountDAO.addAccount(account, true);
+		accountDAO.doWork();
+
 		membershipDAO.addSillyMember();
+		membershipDAO.goToSleep();
 	}
 
 }

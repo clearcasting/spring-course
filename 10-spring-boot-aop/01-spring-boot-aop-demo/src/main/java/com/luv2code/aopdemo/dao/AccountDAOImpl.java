@@ -1,12 +1,20 @@
 package com.luv2code.aopdemo.dao;
 
+import com.luv2code.aopdemo.Account;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class AccountDAOImpl implements AccountDAO {
 
     @Override
-    public void addAccount() {
+    public void addAccount(Account account, boolean vipFlag) {
         System.out.println("ADDING ACCOUNT TO DB ...");
+    }
+
+    @Override
+    public boolean doWork() {
+        System.out.println(getClass() + ": doWork()");
+
+        return false;
     }
 }
