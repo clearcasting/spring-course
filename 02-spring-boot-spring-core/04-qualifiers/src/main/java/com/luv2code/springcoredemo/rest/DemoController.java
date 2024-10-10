@@ -9,17 +9,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DemoController {
 
-    // define a private field for the dependency
-    private Coach myCoach;
+   // define a private field for the dependency
+   private Coach myCoach;
 
-    @Autowired
-    @Qualifier("baseballCoach")
-    public void DemoController(Coach myCoach) {
-        this.myCoach = myCoach;
-    }
+//   Can't use qualifiers on top for a constructor injection
+//   Instead use it as written below
+   @Autowired
+   public DemoController(@Qualifier("cricketCoach") Coach theCoach) {
+      myCoach = theCoach;
+   }
 
-    @GetMapping("/dailyworkout")
-    public String getDailyWorkout() {
-        return myCoach.getDailyWorkout();
-    }
+   @GetMapping("/dailyworkout")
+   String getDailyWorkout() {
+      return myCoach.getDailyWorkout();
+   }
+
 }

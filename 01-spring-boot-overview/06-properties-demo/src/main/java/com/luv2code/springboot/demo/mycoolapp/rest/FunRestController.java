@@ -1,6 +1,5 @@
 package com.luv2code.springboot.demo.mycoolapp.rest;
 
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,27 +16,24 @@ public class FunRestController {
     // expose new endpoint for "teaminfo"
     @GetMapping("/teaminfo")
     public String getTeamInfo() {
-        return String.format("Coach: %s Team Name: %s ", coachName, teamName);
+        return String.format("Coach: %s, Team name: %s", coachName, teamName);
     }
 
     // expose "/" that returns "Hello World"
     @GetMapping("/")
     public String sayHello() {
-        return """
-                Hello World! This my first Spring Boot code!
-                And now it automatically reloads on saves!
-                """;
+        return "Hello World from Spring Boot!";
     }
 
     // expose a new endpoint for "workout"
     @GetMapping("/workout")
-    public String getDailyWork() {
+    public String getDailyWorkout() {
         return "Run a hard 5k!";
     }
 
     // expose a new endpoint for "fortune"
     @GetMapping("/fortune")
-    public String getFortune() {
-        return "Pleasant news is on its way.";
+    public String getDailyFortune() {
+        return "Today is your lucky day!";
     }
 }
